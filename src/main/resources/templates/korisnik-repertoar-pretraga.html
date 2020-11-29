@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dovla cinema</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+
+    <link th:href="@{/css/css2/bootstrap.css}" href="../static/css/css2/bootstrap.css" rel="stylesheet"  />
+    <link th:href="@{/css/css2/style.css}" href="../static/css/css2/style.css" rel="stylesheet"  />
+    <link rel="stylesheet" th:href="@{/css/css2/contactstyle.css}" href="../static/css/css2/contactstyle.css"  />
+    <link rel="stylesheet" th:href="@{/css/css2/faqstyle.css}" href="../static/css/css2/faqstyle.css"  />
+    <link th:href="@{/css/css2/single.css}" href="../static/css/css2/single.css" rel='stylesheet'  />
+    <link th:href="@{/css/css2/medile.css}" href="../static/css/css2/medile.css"  rel='stylesheet'  />
+
+    <!-- news-css -->
+    <link rel="stylesheet" th:href="@{/css/news-css/news.css}" href="../static/css/news-css/news.css" type="text/css" media="all" />
+    <!-- //news-css -->
+    <!-- list-css -->
+    <link rel="stylesheet" th:href="@{/css/list-css/list.css}" href="../static/css/list-css/list.css" type="text/css" media="all" />
+    <!-- //list-css -->
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="../static/css/font-awesome.min.css" />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script type="text/javascript" src="../static/js2/jquery-2.1.4.min.js" th:src="@{js2/jquery-2.1.4.min.js}"></script>
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="../static/js2/move-top.js" th:src="@{js2/move-top.js}"></script>
+    <script type="text/javascript" src="../static/js2/easing.js" th:src="@{js2/easing.js}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <link th:href="@{/css/css2/owl.carousel.css}" href="../static/css/css2/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+    <script src="../static/js2/owl.carousel.js" th:src="@{js2/owl.carousel.js}"></script>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+                items : 5,
+                itemsDesktop : [640,5],
+                itemsDesktopSmall : [414,4]
+
+            });
+
+        });
+    </script>
+    <script src="../static/js2/simplePlayer.js" th:src="@{js2/simplePlayer.js}"></script>
+    <script>
+        $("document").ready(function() {
+            $("#video").simplePlayer();
+        });
+    </script>
+
+    <style>
+
+        .big {
+            font-size: 1.2em;
+        }
+
+        .small {
+            font-size: .7em;
+        }
+
+        .square {
+            width: .7em;
+            height: .7em;
+            margin: .5em;
+            display: inline-block;
+        }
+
+        /* Custom dropdown */
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 10px; /* demo only */
+        }
+
+        .custom-dropdown select {
+            background-color: #fff;
+            color: #000000;
+            font-size: inherit;
+            padding: .5em;
+            padding-right: 2.5em;
+            border: 0;
+            margin: 0;
+            border-radius: 3px;
+            text-indent: 0.01px;
+            text-overflow: '';
+            -webkit-appearance: button; /* hide default arrow in chrome OSX */
+        }
+
+        .custom-dropdown::before,
+        .custom-dropdown::after {
+            content: "";
+            position: absolute;
+            pointer-events: none;
+        }
+
+
+        .custom-dropdown::before { /*  Custom dropdown arrow cover */
+            width: 2em;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .custom-dropdown select[disabled] {
+            color: rgba(0,0,0,.3);
+        }
+
+        .custom-dropdown select[disabled]::after {
+            color: rgba(0,0,0,.1);
+        }
+
+        .custom-dropdown::before {
+            background-color: rgba(0,0,0,.15);
+        }
+
+        .custom-dropdown::after {
+            color: rgba(0,0,0,.4);
+        }
+    </style>
+
+</head>
+
+<body>
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <div class="w3layouts_logo">
+            <a href="pocetna.html"><h1>Dovla<span>Cinema</span></h1></a>
+        </div>
+        <div class="w3l_sign_in_register">
+            <ul>
+                <li><h4 th:text="${'   Dobar dan '+korisnik.ime+', br. poena: '+korisnik.brPoena}"></h4></li>
+                <li><a th:href="@{/logout}">Odjavi se</a></li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //header -->
+<!-- nav -->
+<div class="movies_nav">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header navbar-left">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <nav>
+                    <ul class="nav navbar-nav">
+                        <li><a th:href="@{/korisnik/pocetna}">Pocetna</a></li>
+                        <li><a th:href="@{/korisnik/filmovi}">Svi filmovi</a></li>
+                        <li class="active"><a th:href="@{/korisnik/repertoar-pretraga}">Repertoar</a></li>
+                        <li><a th:href="@{/korisnik/klubovi}">Uclani se u klub</a></li>
+                        <li><a th:href="@{/korisnik/klubovi/clan}">Moji klubovi</a></li>
+                        <li><a th:href="@{/korisnik/paketi-hrane}">Paketi hrane</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- //nav -->
+<div class="general_social_icons">
+    <nav class="social">
+        <ul>
+            <li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+            <li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+            <li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
+        </ul>
+    </nav>
+</div>
+<!-- single -->
+<div class="single-page-agile-main">
+    <div class="container">
+        <!-- /w3l-medile-movies-grids -->
+        <div class="agileits-single-top">
+            <ol class="breadcrumb">
+                <li><a th:href="@{/korisnik/pocetna}">Pocetna</a></li>
+                <li class="active">Pretraga repertoara</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            Pretraga repertoara
+        </div>
+        <section>
+            <div class="modal-body">
+                <div class="w3_login_module">
+                    <div class="module form-module">
+
+                        <div class="form">
+
+                        </div>
+                        <div class="form">
+                            <form th:action="@{/korisnik/projekcije}">
+
+                                <label style="text-align: center; display: block; font-size: 16pt">Datum:</label>
+                                <div style="text-align: center">
+                                <span class="custom-dropdown big">
+                                    <input type="date" class="sign__input" id="datum" name="datum" th:name="datum" >
+                                </span>
+                                </div>
+
+
+                                <label style="text-align: center; display: block; font-size: 16pt">Grad:</label>
+                                <div style="text-align: center">
+                                <span class="custom-dropdown big">
+                                    <select style="position: center" th:name="grad" required>
+                                        <option value="0">Izaberite grad:</option>
+                                        <option th:each="grad : ${gradovi}" th:value="${grad.naziv}" th:text="${grad.naziv}"></option>
+
+                                    </select>
+                                </span>
+                                </div>
+
+                                <label style="text-align: center; display: block; font-size: 16pt">Bioskop:</label>
+                                <div style="text-align: center">
+                                <span class="custom-dropdown big">
+                                    <select style="position: center" th:name="bioskop" required>
+                                        <option value="0">Izaberite bioskop:</option>
+                                        <option th:each="bioskop : ${bioskopi}" th:value="${bioskop.naziv}" th:text="${bioskop.naziv}"></option>
+
+                                    </select>
+                                </span>
+                                </div>
+
+                                <br>
+                                <input type="submit" value="Pretraga">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="w3ls_footer_grid">
+            <div class="col-md-6 w3ls_footer_grid_left">
+                <div class="w3ls_footer_grid_left1">
+                    <h2>Pretplatite se</h2>
+                    <div class="w3ls_footer_grid_left1_pos">
+                        <form action="#" method="post">
+                            <input type="email" name="email" placeholder="Vas email..." required="">
+                            <input type="submit" value="Posalji">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 w3ls_footer_grid_right">
+                <a href="pocetna.html"><h2>Dovla<span>Cinema</span></h2></a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-5 w3ls_footer_grid1_left">
+            <p>&copy; 2020 Dovla Cinema.</p>
+        </div>
+        <div class="col-md-7 w3ls_footer_grid1_right">
+            <ul>
+                <li>
+                    <a href="#">Svi filmovi</a>
+                </li>
+                <li>
+                    <a href="#">Bioskopi</a>
+                </li>
+                <li>
+                    <a href="#">Repertoar</a>
+                </li>
+                <li>
+                    <a href="#">Uclani se u klub</a>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="../static/js2/bootstrap.min.js" th:src="@{js2/bootstrap.min.js}"></script>
+<script>
+    $(document).ready(function(){
+        $(".dropdown").hover(
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                $(this).toggleClass('open');
+            },
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                $(this).toggleClass('open');
+            }
+        );
+    });
+</script>
+<!-- //Bootstrap Core JavaScript -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Dovla cinema</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+	<link th:href="@{/css/css2/bootstrap.css}" href="../static/css/css2/bootstrap.css" rel="stylesheet"  />
+	<link th:href="@{/css/css2/style.css}" href="../static/css/css2/style.css" rel="stylesheet"  />
+	<link rel="stylesheet" th:href="@{/css/css2/contactstyle.css}" href="../static/css/css2/contactstyle.css"  />
+	<link rel="stylesheet" th:href="@{/css/css2/faqstyle.css}" href="../static/css/css2/faqstyle.css"  />
+	<link th:href="@{/css/css2/single.css}" href="../static/css/css2/single.css" rel='stylesheet'  />
+	<link th:href="@{/css/css2/medile.css}" href="../static/css/css2/medile.css"  rel='stylesheet'  />
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="../static/css/font-awesome.min.css" />
+	<link th:href="@{/cute-alert-master/styleConfirm.css}" href="../static/cute-alert-master/styleConfirm.css" rel='stylesheet'  />
+	<!-- //font-awesome icons -->
+	<!-- js -->
+	<script type="text/javascript" src="../static/js2/jquery-2.1.4.min.js" th:src="@{js2/jquery-2.1.4.min.js}"></script>
+	<!-- //js -->
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="../static/js2/move-top.js" th:src="@{js2/move-top.js}"></script>
+	<script type="text/javascript" src="../static/js2/easing.js" th:src="@{js2/easing.js}"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+</head>
+	
+<body>
+<!-- header -->
+<div class="header">
+	<div class="container">
+		<div class="w3layouts_logo">
+			<a th:href="@{/index-Korisnik}"><h1>Dovla<span>Cinema</span></h1></a>
+		</div>
+		<div class="w3l_sign_in_register">
+			<ul>
+				<li><h4 th:text="${'   Dobar dan '+korisnik.ime+', br. poena: '+korisnik.brPoena}"></h4></li>
+				<li><a th:href="@{/logout}">Odjavi se</a></li>
+			</ul>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<!-- //header -->
+<!-- nav -->
+<div class="movies_nav">
+	<div class="container">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header navbar-left">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+				<nav>
+					<ul class="nav navbar-nav">
+						<li><a th:href="@{/korisnik/pocetna}">Pocetna</a></li>
+						<li><a th:href="@{/korisnik/filmovi}">Svi filmovi</a></li>
+						<li><a th:href="@{/korisnik/repertoar-pretraga}">Repertoar</a></li>
+						<li class="active"><a th:href="@{/korisnik/klubovi}">Uclani se u klub</a></li>
+						<li><a th:href="@{/korisnik/klubovi/clan}">Moji klubovi</a></li>
+						<li><a th:href="@{/korisnik/paketi-hrane}">Paketi hrane</a></li>
+					</ul>
+				</nav>
+			</div>
+		</nav>
+	</div>
+</div>
+<!-- //nav -->
+<div class="general_social_icons">
+	<nav class="social">
+		<ul>
+			<li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+			<li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+			<li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
+		</ul>
+	</nav>
+</div>
+<!-- contact -->
+	<div class="contact-agile">
+		<div class="faq">
+			<h4 class="latest-text w3_latest_text">Klubovi</h4>
+			<div class="container">
+				<div class="col-md-3 mail-wthree" th:each="klub : ${klubovi}">
+					<form th:action="@{'/korisnik/klubovi/sacuvaj/'+${klub.klubID}}" method="post">
+					<div class="icon-w3">
+						<span class="fa fa-star" aria-hidden="true"></span>
+					</div>
+					<h3><a th:text="${klub.naziv}"></a></h3>
+					<h4><a th:text="${klub.opis}"></a></h4>
+					<input type="submit" value="Učlani se"/>
+					</form>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+	</div>
+<!-- //contact -->
+<!-- footer -->
+<div class="footer">
+	<div class="container">
+		<div class="w3ls_footer_grid">
+			<div class="col-md-6 w3ls_footer_grid_left">
+				<div class="w3ls_footer_grid_left1">
+					<h2>Pretplatite se</h2>
+					<div class="w3ls_footer_grid_left1_pos">
+						<form action="#" method="post">
+							<input type="email" name="email" placeholder="Vas email..." required="">
+							<input type="submit" value="Posalji">
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 w3ls_footer_grid_right">
+				<a th:href="@{/index-Korisnik}"><h2>Dovla<span>Cinema</span></h2></a>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+		<div class="col-md-5 w3ls_footer_grid1_left">
+			<p>&copy; 2020 Dovla Cinema.</p>
+		</div>
+		<div class="col-md-7 w3ls_footer_grid1_right">
+			<ul>
+				<li>
+					<a href="#">Svi filmovi</a>
+				</li>
+				<li>
+					<a href="#">Bioskopi</a>
+				</li>
+				<li>
+					<a href="#">Repertoar</a>
+				</li>
+				<li>
+					<a href="#">Uclani se u klub</a>
+				</li>
+			</ul>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$(".dropdown").hover(
+				function() {
+					$('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+					$(this).toggleClass('open');
+				},
+				function() {
+					$('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+					$(this).toggleClass('open');
+				}
+		);
+	});
+</script>
+<!-- //Bootstrap Core JavaScript -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		/*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+		$().UItoTop({ easingType: 'easeOutQuart' });
+
+	});
+</script>
+<script src="../static/cute-alert-master/cute-alert.js" th:src="@{/cute-alert-master/cute-alert.js}"></script>
+<!-- //here ends scrolling icon -->
+</body>
+
+</html>

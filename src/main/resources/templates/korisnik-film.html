@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dovla cinema</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="One Movies Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link th:href="@{/css/css2/bootstrap.css}" href="../static/css/css2/bootstrap.css" rel="stylesheet"  />
+    <link th:href="@{/css/css2/style.css}" href="../static/css/css2/style.css" rel="stylesheet"  />
+    <link rel="stylesheet" th:href="@{/css/css2/contactstyle.css}" href="../static/css/css2/contactstyle.css"  />
+    <link rel="stylesheet" th:href="@{/css/css2/faqstyle.css}" href="../static/css/css2/faqstyle.css"  />
+    <link th:href="@{/css/css2/single.css}" href="../static/css/css2/single.css" rel='stylesheet'  />
+    <link th:href="@{/css/css2/medile.css}" href="../static/css/css2/medile.css"  rel='stylesheet'  />
+
+    <!-- news-css -->
+    <link rel="stylesheet" th:href="@{/css/news-css/news.css}" href="../static/css/news-css/news.css" type="text/css" media="all" />
+    <!-- //news-css -->
+    <!-- list-css -->
+    <link rel="stylesheet" th:href="@{/css/list-css/list.css}" href="../static/css/list-css/list.css" type="text/css" media="all" />
+    <!-- //list-css -->
+    <!-- font-awesome icons -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="../static/css/font-awesome.min.css" />
+    <!-- //font-awesome icons -->
+    <!-- js -->
+    <script type="text/javascript" src="../static/js2/jquery-2.1.4.min.js" th:src="@{js2/jquery-2.1.4.min.js}"></script>
+    <!-- //js -->
+    <link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700italic,700,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!-- start-smoth-scrolling -->
+    <script type="text/javascript" src="../static/js2/move-top.js" th:src="@{js2/move-top.js}"></script>
+    <script type="text/javascript" src="../static/js2/easing.js" th:src="@{js2/easing.js}"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+            });
+        });
+    </script>
+    <!-- start-smoth-scrolling -->
+    <link th:href="@{/css/css2/owl.carousel.css}" href="../static/css/css2/owl.carousel.css" rel="stylesheet" type="text/css" media="all">
+    <script src="../static/js2/owl.carousel.js" th:src="@{js2/owl.carousel.js}"></script>
+    <script>
+        $(document).ready(function() {
+            $("#owl-demo").owlCarousel({
+
+                autoPlay: 3000, //Set AutoPlay to 3 seconds
+
+                items : 5,
+                itemsDesktop : [640,5],
+                itemsDesktopSmall : [414,4]
+
+            });
+
+        });
+    </script>
+    <script src="../static/js2/simplePlayer.js" th:src="@{js2/simplePlayer.js}"></script>
+    <script>
+        $("document").ready(function() {
+            $("#video").simplePlayer();
+        });
+    </script>
+
+</head>
+
+<body>
+<!-- header -->
+<div class="header">
+    <div class="container">
+        <div class="w3layouts_logo">
+            <a href="pocetna.html"><h1>Dovla<span>Cinema</span></h1></a>
+        </div>
+        <div class="w3l_sign_in_register">
+            <ul>
+                <li><h4 th:text="${'   Dobar dan '+korisnik.ime+', br. poena: '+korisnik.brPoena}"></h4></li>
+                <li><a th:href="@{/logout}">Odjavi se</a></li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //header -->
+<!-- nav -->
+<div class="movies_nav">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header navbar-left">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                <nav>
+                    <ul class="nav navbar-nav">
+                        <li><a th:href="@{/korisnik/pocetna}">Pocetna</a></li>
+                        <li><a th:href="@{/korisnik/filmovi}">Svi filmovi</a></li>
+                        <li><a th:href="@{/korisnik/repertoar-pretraga}">Repertoar</a></li>
+                        <li><a th:href="@{/korisnik/klubovi}">Uclani se u klub</a></li>
+                        <li><a th:href="@{/korisnik/klubovi/clan}">Moji klubovi</a></li>
+                        <li><a th:href="@{/korisnik/paketi-hrane}">Paketi hrane</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- //nav -->
+<div class="general_social_icons">
+    <nav class="social">
+        <ul>
+            <li class="w3_twitter"><a href="#">Twitter <i class="fa fa-twitter"></i></a></li>
+            <li class="w3_facebook"><a href="#">Facebook <i class="fa fa-facebook"></i></a></li>
+            <li class="w3_g_plus"><a href="#">Google+ <i class="fa fa-google-plus"></i></a></li>
+        </ul>
+    </nav>
+</div>
+<!-- single -->
+<div class="single-page-agile-main">
+    <div class="container">
+        <!-- /w3l-medile-movies-grids -->
+        <div class="agileits-single-top">
+            <ol class="breadcrumb">
+                <li><a th:href="@{/korisnik/pocetna}">Pocetna</a></li>
+                <li class="active">Film trejler</li>
+            </ol>
+        </div>
+        <div class="single-page-agile-info">
+            <!-- /movie-browse-agile -->
+            <div class="show-top-grids-w3lagile">
+                <div class="col-sm-8 single-left">
+                    <div class="song">
+                        <div class="song-info">
+                            <h3 th:text="${film.naziv}"></h3>
+                        </div>
+                        <div class="video-grid-single-page-agileits">
+                            <iframe width="560" height="315" th:src="@{${film.youtube}}" frameborder="0" allow="accelerometer; autoplay=1; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <br>
+                        <div class="song-info">
+                            <h4 th:text="${film.opis}"></h4>
+                        </div>
+                        <div class="song-info">
+                            <h4>Godina: <a th:text="${film.godina}"></a></h4>
+                            <h4>Ocena: <a th:text="${film.imdb}"></a></h4>
+                            <div class="w3l_reservation">
+                                <ul>
+                                    <li><a th:href="${'/korisnik/projekcije/' + film.filmID}" >Rezervisi kartu</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="song-grid-right">
+
+                    </div>
+                    <div class="clearfix"> </div>
+
+                </div>
+                <div class="col-md-4 single-right">
+                    <h3>Novi filmovi</h3>
+                    <div class="single-grid-right">
+                        <div class="single-right-grids" th:each="film : ${filmoviNovi}">
+                            <div class="col-md-4 single-right-grid-left">
+                                <a th:href="${'/korisnik/film/' + film.filmID}"><img th:src="@{${film.getSlika()}}" alt="" /></a>
+                            </div>
+                            <div class="col-md-8 single-right-grid-right">
+                                <a th:href="${'/korisnik/film/' + film.filmID}" class="title" th:text="${film.naziv}"></a>
+                                <p class="author"><a href="#" class="author" th:text="${film.godina}"></a></p>
+                                <p class="views"><a th:text="${film.imdb}"></a></p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix"> </div>
+            </div>
+            <!-- //movie-browse-agile -->
+        </div>
+        <!-- //w3l-latest-movies-grids -->
+    </div>
+</div>
+<!-- //w3l-medile-movies-grids -->
+
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="w3ls_footer_grid">
+            <div class="col-md-6 w3ls_footer_grid_left">
+                <div class="w3ls_footer_grid_left1">
+                    <h2>Pretplatite se</h2>
+                    <div class="w3ls_footer_grid_left1_pos">
+                        <form action="#" method="post">
+                            <input type="email" name="email" placeholder="Vas email..." required="">
+                            <input type="submit" value="Posalji">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 w3ls_footer_grid_right">
+                <a href="pocetna.html"><h2>Dovla<span>Cinema</span></h2></a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="col-md-5 w3ls_footer_grid1_left">
+            <p>&copy; 2020 Dovla Cinema.</p>
+        </div>
+        <div class="col-md-7 w3ls_footer_grid1_right">
+            <ul>
+                <li>
+                    <a href="#">Svi filmovi</a>
+                </li>
+                <li>
+                    <a href="#">Bioskopi</a>
+                </li>
+                <li>
+                    <a href="#">Repertoar</a>
+                </li>
+                <li>
+                    <a href="#">Uclani se u klub</a>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="../static/js2/bootstrap.min.js" th:src="@{js2/bootstrap.min.js}"></script>
+<script>
+    $(document).ready(function(){
+        $(".dropdown").hover(
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                $(this).toggleClass('open');
+            },
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                $(this).toggleClass('open');
+            }
+        );
+    });
+</script>
+<!-- //Bootstrap Core JavaScript -->
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Admin</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/Material-Icons.css}" href="../static/css/Material-Icons.css" />
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}" href="../static/css/font-awesome.min.css">
+    <link th:href="@{/css/material-dashboard.css}" href="../static/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+    <link th:href="@{/css/black-dashboard.css}" href="../static/css/black-dashboard.css" rel="stylesheet" />
+    <style>
+        div.absolute{
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: 1000px;
+            max-width: 1000px;
+            height: auto;
+            display: inline-block;
+
+        }
+    </style>
+</head>
+
+<body class="dark-edition">
+<div class="wrapper ">
+    <div class="sidebar" data-color="purple" data-background-color="black">
+
+        <div class="sidebar-wrapper ps-container ps-theme-default" data-ps-id="3a8db1f4-24d8-4dbf-85c9-4f5215c1b29a">
+            <ul class="nav">
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/admin/menadzeri/novi}">
+                        <i class="material-icons">add</i>
+                        <p>Dodaj menadzera</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/admin/menadzeri/lista}">
+                        <i class="material-icons">edit_user</i>
+                        <p>Izmeni menadzera</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/admin/filmovi/novi}">
+                        <i class="material-icons">add</i>
+                        <p>Dodaj film</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/admin/filmovi/lista}">
+                        <i class="material-icons">edit_user</i>
+                        <p>Lista filmova</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/admin/projekcije/nova}">
+                        <i class="material-icons">add</i>
+                        <p>Dodaj projekciju</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/admin/projekcije/lista}">
+                        <i class="material-icons">edit_user</i>
+                        <p>Lista projekcija</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/admin/korisnici/lista}">
+                        <i class="material-icons">person</i>
+                        <p>Obrisi korisnika</p>
+                    </a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link" th:href="@{/logout}" >
+                        <i class="material-icons">logout</i>
+                        <p>Izloguj se</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <div class="absolute">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="col-md-5 mx-auto">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h5 class="title">Izmeni menadzera</h5>
+                        </div>
+                        <form th:object="${zaposleniDto}" th:action="@{/admin/menadzeri/sacuvaj-izmene}" method="post">
+                            <div class="card-body">
+
+                                <input type="hidden" th:field="*{zaposleniID}"/>
+                                <input type="hidden" th:field="*{password}"/>
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <label>Ime</label>
+                                        <input type="text" id="ime" name="ime"  class="form-control"th:field="*{ime}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <label>Prezime</label>
+                                        <input type="text" id="prezime" name="prezime"  class="form-control"th:field="*{prezime}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" id="email" name="email"  class="form-control"th:field="*{email}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 ">
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input type="text" id="username" name="username"  class="form-control"th:field="*{username}">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" id="btn_save" name="btn_save" class="btn btn-fill btn-primary">Izmeni</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
